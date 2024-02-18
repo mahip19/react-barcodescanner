@@ -1,5 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
+
 import Quagga from 'quagga';
+
 
 // import { useZxing } from "react-zxing";
 
@@ -15,6 +17,7 @@ const BarcodeScanner = ({ onBarcodeScanned }) => {
       const fetchCameras = async () => {
         try{
             const devices = await navigator.mediaDevices.enumerateDevices();
+            console.log(devices);
             const videoDevices = devices.filter( device => device.kind === 'videoinput');
             setCameras(videoDevices);
             setSelectedCamera(videoDevices[0]?.deviceId || '');
@@ -27,7 +30,8 @@ const BarcodeScanner = ({ onBarcodeScanned }) => {
       fetchCameras();
     }, [])
     
-    console.log(cameras);
+    console.log('cameras',cameras);
+
     useEffect(() => {
 
         if (!selectedCamera) return;
