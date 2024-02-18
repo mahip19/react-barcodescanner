@@ -11,7 +11,7 @@ function App() {
     
     return (
         <div className="App">
-            <h1>Barcode scanner</h1>
+            <h1>Barcode scanner by mahip</h1>
 
             <BarcodeScanner onBarcodeScanned={handleOnBarcodeScanned}/>
 
